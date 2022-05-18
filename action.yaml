@@ -1,0 +1,46 @@
+name: 'Uffizzi Update Preview'
+description: 'Update Continuous Previews on Uffizzi'
+author: 'Adam Vollrath'
+branding:
+  color: 'yellow'
+  icon: 'upload-cloud'
+inputs:
+  server:
+    description: 'URL to Uffizzi'
+    required: false
+    default: 'https://app.uffizzi.com'
+  username:
+    description: 'Uffizzi username'
+    required: true
+  password:
+    description: 'Uffizzi password'
+    required: true
+  project:
+    description: 'Uffizzi project name'
+    required: true
+  preview-id:
+    description: 'preview ID'
+    required: true
+  compose-file:
+    description: 'An alternate compose file'
+    required: false
+    default: 'docker-compose.yaml'
+outputs:
+  url:
+    description: 'URL where preview was deployed, if successful'
+  id:
+    description: 'ID of preview for later reference'
+runs:
+  using: 'docker'
+  image: 'docker://uffizzi/cli:latest'
+  args:
+    - 'preview'
+    - 'update'
+    - '--output=github-action'
+    - ${{ inputs.preview-id }}
+    - ${{ inputs.compose-file }}
+  env:
+    UFFIZZI_SERVER: ${{ inputs.server }}
+    UFFIZZI_USER: ${{ inputs.username }}
+    UFFIZZI_PASSWORD: ${{ inputs.password }}
+    UFFIZZI_PROJECT: ${{ inputs.project }}
