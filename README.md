@@ -28,6 +28,12 @@ Path to a compose file within your repository (default: docker-compose.yaml)
 
 **Required** ID of Uffizzi existing preview
 
+### `ghcr-username` and `ghcr-access-token`
+
+Your GitHub username and the value of a [Github personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the `read:packages` scope.
+
+This option is provided as a convenience to get started quickly. For sensitive repositories, we recommend instead connecting your Uffizzi account to GHCR via the web interface or by executing `uffizzi connect ghcr` from a trusted environment.
+
 ## Example usage
 
 ```yaml
