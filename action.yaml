@@ -25,6 +25,12 @@ inputs:
     description: 'An alternate compose file'
     required: false
     default: 'docker-compose.yaml'
+  ghcr-username:
+    description: 'Username to authenticate to GHCR'
+    required: false
+  ghcr-access-token:
+    descrption: 'Password to authenticate to GHCR'
+    required: false
 outputs:
   url:
     description: 'URL where preview was deployed, if successful'
@@ -32,7 +38,7 @@ outputs:
     description: 'ID of preview for later reference'
 runs:
   using: 'docker'
-  image: 'docker://uffizzi/cli:latest'
+  image: 'docker://uffizzi/cli:v0.11.3'
   args:
     - 'preview'
     - 'update'
@@ -44,3 +50,5 @@ runs:
     UFFIZZI_USER: ${{ inputs.username }}
     UFFIZZI_PASSWORD: ${{ inputs.password }}
     UFFIZZI_PROJECT: ${{ inputs.project }}
+    GITHUB_USERNAME: ${{ inputs.ghcr-username }}
+    GITHUB_ACCESS_TOKEN: ${{ inputs.ghcr-access-token }}
