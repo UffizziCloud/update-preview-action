@@ -38,7 +38,7 @@ outputs:
     description: 'ID of preview for later reference'
 runs:
   using: 'docker'
-  image: 'docker://uffizzi/cli:latest'
+  image: 'docker://uffizzi/cli:v0.11.3'
   args:
     - 'preview'
     - 'update'
