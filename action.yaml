@@ -11,13 +11,13 @@ inputs:
     default: 'https://app.uffizzi.com'
   username:
     description: 'Uffizzi username'
-    required: true
+    required: false
   password:
     description: 'Uffizzi password'
-    required: true
+    required: false
   project:
     description: 'Uffizzi project name'
-    required: true
+    required: false
   preview-id:
     description: 'preview ID'
     required: true
@@ -30,6 +30,18 @@ inputs:
     required: false
   ghcr-access-token:
     descrption: 'Password to authenticate to GHCR'
+    required: false
+  request-token:
+    descrption: 'A token to access the pipeline information'
+    required: false
+  request-token-url:
+    descrption: 'A url where the pipeline information can be accessed'
+    required: false
+  dockerhub-username:
+    descrption: 'DockerHub username'
+    required: false
+  dockerhub-password:
+    descrption: 'DockerHub password'
     required: false
 outputs:
   url:
@@ -52,3 +64,7 @@ runs:
     UFFIZZI_PROJECT: ${{ inputs.project }}
     GITHUB_USERNAME: ${{ inputs.ghcr-username }}
     GITHUB_ACCESS_TOKEN: ${{ inputs.ghcr-access-token }}
+    REQUEST_TOKEN: ${{ inputs.request-token }}
+    REQUEST_TOKEN_URL: ${{ inputs.request-token-url }}
+    DOCKERHUB_USERNAME: ${{ inputs.dockerhub-username }}
+    DOCKERHUB_PASSWORD: ${{ inputs.dockerhub-password }}
