@@ -72,8 +72,6 @@ with:
         core.setOutput('request-token', token.trim())
         core.setOutput('request-token-url', runtimeUrl.trim())
   - uses: UffizziCloud/update-preview-action@v1
-    id: update-preview
-    if: ${{ steps.parse-comment.outputs.id != '' && github.event.action != 'closed' }}
     with:
       server: 'https://app.uffizzi.com'
       compose-file: 'docker-compose.uffizzi.yaml'
