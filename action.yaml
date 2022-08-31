@@ -50,7 +50,7 @@ outputs:
     description: 'ID of preview for later reference'
 runs:
   using: 'docker'
-  image: 'docker://limoha/cli:latest'
+  image: 'docker://uffizzi/cli:v1'
   args:
     - 'preview'
     - 'update'
