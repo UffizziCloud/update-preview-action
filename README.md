@@ -66,7 +66,6 @@ with:
   - uses: actions/github-script@v6
     id: ci-job-token
     with:
-      debug: true
       script: |
         const token = process.env['ACTIONS_RUNTIME_TOKEN']
         const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
