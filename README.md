@@ -63,22 +63,26 @@ with:
 ### OIDC token login
 
 ```yaml
-  - uses: actions/github-script@v6
-    id: ci-job-token
-    with:
-      script: |
-        const token = process.env['ACTIONS_RUNTIME_TOKEN']
-        const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
-        core.setOutput('request-token', token.trim())
-        core.setOutput('request-token-url', runtimeUrl.trim())
-  - uses: UffizziCloud/update-preview-action@v1
-    with:
-      server: 'https://app.uffizzi.com'
-      compose-file: 'docker-compose.uffizzi.yaml'
-      request-token: ${{ steps.ci-job-token.outputs.request-token }}
-      request-token-url: ${{ steps.ci-job-token.outputs.request-token-url }}
-      preview-id: 1
-    permissions:
-      id-token: write
+update-preview:
+  name: "Update Preview on Uffizzi"
+  runs-on: ubuntu-20.04
+  steps:
+    - uses: actions/github-script@v6
+      id: ci-job-token
+      with:
+        script: |
+          const token = process.env['ACTIONS_RUNTIME_TOKEN']
+          const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
+          core.setOutput('request-token', token.trim())
+          core.setOutput('request-token-url', runtimeUrl.trim())
+    - uses: UffizziCloud/update-preview-action@v1
+      with:
+        server: 'https://app.uffizzi.com'
+        compose-file: 'docker-compose.uffizzi.yaml'
+        request-token: ${{ steps.ci-job-token.outputs.request-token }}
+        request-token-url: ${{ steps.ci-job-token.outputs.request-token-url }}
+        preview-id: 1
+permissions:
+  id-token: write
 ```
 
