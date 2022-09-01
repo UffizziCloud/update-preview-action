@@ -78,5 +78,7 @@ with:
       request-token: ${{ steps.ci-job-token.outputs.request-token }}
       request-token-url: ${{ steps.ci-job-token.outputs.request-token-url }}
       preview-id: 1
+    permissions:
+      id-token: write
 ```
 
