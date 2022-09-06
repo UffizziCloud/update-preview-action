@@ -18,7 +18,7 @@ Your Uffizzi password. Specify a GitHub Encrypted Secret and use it! See example
 
 ### `project`
 
-Uffizzi project name
+Uffizzi project slug
 
 ### `request-token`
 
