@@ -46,6 +46,22 @@ This option is provided as a convenience to get started quickly. For sensitive r
 
 Your DockerHub username and password.
 
+### `acr-registry-url`, `acr-username`, and `acr-password`
+
+Your Azure Container Registry url, username and password.
+
+### `aws-registry-url`, `aws-access-key-id`, and `aws-secret-access-key`
+
+Your Amazon Web Services registry url, access key id and secret access key.
+
+### `gcloud-service-key`
+
+Your Google Cloud service key.
+
+### `docker-registry-url`, `docker-registry-username`, and `docker-registry-password`
+
+Your custom docker registry url, username and password.
+
 ## Example usage
 ### Email and password login
 
