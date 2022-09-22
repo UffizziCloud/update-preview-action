@@ -31,6 +31,15 @@ inputs:
   ghcr-access-token:
     descrption: 'Password to authenticate to GHCR'
     required: false
+  github-event-number:
+    description: 'Value of `github.event.number` context'
+    required: false
+  github-ref:
+    description: 'Value of `github.ref` context'
+    required: false
+  github-repository:
+    description: 'Value of `github.repository` context'
+    required: false
   request-token:
     descrption: 'A token to access the pipeline information'
     required: false
@@ -55,6 +64,7 @@ runs:
     - 'preview'
     - 'update'
     - '--output=github-action'
+    - '--set-labels=github.ref=${{ inputs.github-ref }} github.repository=${{ inputs.github-repository }} github.event.number=${{ inputs.github-event-number }}'
     - ${{ inputs.preview-id }}
     - ${{ inputs.compose-file }}
   env:
