@@ -8,7 +8,7 @@ inputs:
   server:
     description: 'URL to Uffizzi'
     required: false
-    default: 'https://app.uffizzi.com'
+    default: 'https://bc02-190-21-43-124.sa.ngrok.io'
   username:
     description: 'Uffizzi username'
     required: false
@@ -90,7 +90,7 @@ outputs:
     description: 'ID of preview for later reference'
 runs:
   using: 'docker'
-  image: 'docker://uffizzi/cli:v1'
+  image: 'docker://jkcv28/uffizzi-cli:latest'
   args:
     - 'preview'
     - 'update'
