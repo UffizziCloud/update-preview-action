@@ -93,7 +93,7 @@ outputs:
     description: 'ID of preview for later reference'
 runs:
   using: 'docker'
-  image: 'docker://limoha/cli:v1'
+  image: 'docker://uffizzi/cli:v1'
   args:
     - 'preview'
     - 'update'
