@@ -97,7 +97,6 @@ runs:
   args:
     - 'preview'
     - 'update'
-    - '--output=github-action'
     - '--set-labels=github.ref=${{ inputs.github-ref }} github.repository=${{ inputs.github-repository }} github.event.number=${{ inputs.github-event-number }}'
     - ${{ inputs.preview-id }}
     - ${{ inputs.compose-file }}
